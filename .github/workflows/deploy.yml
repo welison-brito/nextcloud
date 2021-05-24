@@ -10,7 +10,7 @@ jobs:
           echo "$KEY" > devops.pem
           chmod 400 devops.pem
           scp -o "StrictHostKeyChecking no" -i devops.pem docker-compose.yml ubuntu@$SERVER_IP:.
-          ssh -i devops.pem ubuntu@$SERVER-IP "docker-compose up -d"
+          ssh -i devops.pem ubuntu@$SERVER_IP "docker-compose up -d"
         env: 
           KEY: ${{secrets.CHAVESSH}}
           SERVER_IP: ${{secrets.IP}}
